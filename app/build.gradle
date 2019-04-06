@@ -1,0 +1,83 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "com.example.liurui.palmhuaishi_client"
+        minSdkVersion 16
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation 'com.android.support:design:26.1.0'
+    androidTestCompile('com.android.support:support-annotations:26.1.0') {
+        force = true
+    }
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    //retrofit
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+    compile 'com.google.code.gson:gson:2.7'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+    compile 'com.squareup.okhttp3:okhttp:3.4.1'
+
+    // 开源弹出式Toast
+    compile('de.keyboardsurfer.android.widget:crouton:1.8.5@aar') {
+        // exclusion is not neccessary, but generally a good idea.
+        exclude group: 'com.google.android', module: 'support-v4'
+    }
+
+    //炫酷的dialog
+    compile 'com.nineoldandroids:library:2.4.0'
+    compile 'com.github.sd6352051.niftydialogeffects:niftydialogeffects:1.0.0@aar'
+    // 例子动画
+    compile 'me.wangyuwei:ParticleView:1.0.5'
+    // 闪动加载
+    compile 'com.elyeproj.libraries:loaderviewlibrary:1.2.1'
+    // 另一种方式的Dialog弹出方式
+    compile 'com.nineoldandroids:library:2.4.0'
+    compile 'com.github.sd6352051.niftydialogeffects:niftydialogeffects:1.0.0@aar'
+
+    // 奇特的RecyclerView
+    compile 'com.marshalchen.ultimaterecyclerview:library:0.7.0'
+    // 进度条水平方向
+    compile 'com.daimajia.numberprogressbar:library:1.2@aar'
+    // 弹起式日期控件
+    compile 'com.philliphsu:bottomsheetpickers:2.0.0'
+    // 支持下拉刷新和上拉加载的RecyclerView
+    compile 'com.jcodecraeer:xrecyclerview:1.2.7'
+    // Material Design风格的输入框开源
+    compile 'com.rengwuxian.materialedittext:library:2.1.4'
+    // 网络访问框架okgo 封装okhttp
+    compile 'com.lzy.net:okgo:2.1.4'
+    //版本号使用 + 可以自动引用最新版
+
+    // 圆形image
+    compile 'de.hdodenhof:circleimageview:2.1.0'
+    compile 'org.greenrobot:eventbus:3.0.0'
+    // 九宫格图片展示和仿微信图片选择
+    compile 'com.lzy.widget:ninegridview:0.2.0'
+    compile 'com.lzy.widget:imagepicker:0.5.5'
+    //最新版本
+
+   // compile 'com.github.nanchen2251:CompressHelper:1.0.2'
+
+    //上传图片
+    compile 'com.github.open-android:ImageSelector:0.1.0'
+}
