@@ -18,6 +18,10 @@ import com.scrat.app.selectorlibrary.ImageSelector;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import okhttp3.Callback;
@@ -27,6 +31,9 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
+
+
+import java.util.Date;
 
 /**
  * Created by liurui on 2019.4.6.
@@ -42,11 +49,15 @@ public class UploadimagesActivity extends AppCompatActivity implements View.OnCl
     private GridView lv_grid; //三列gridView
     private List<String> path;//路径集合
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_uploadimages);
         initView();
+        finish();
     }
 
     private void initView() {
@@ -85,14 +96,28 @@ public class UploadimagesActivity extends AppCompatActivity implements View.OnCl
                 }
                 //当前登录的用户名
                 String username = AppService.getInstance().getCurrentUser().username;
+                //  Log.e("username",username);
+
+             /*   //获取当前时间作为ID时间戳标记，与内容表一一对应！
+                //Date d = new Date();
+                SimpleDateFormat tempDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                String time = tempDate.format(new java.util.Date());
+               // Log.e("time",time);*/
+
+                Intent intent = getIntent();
+                //从intent取出bundle
+                Bundle bundle = intent.getBundleExtra("data");
+                //获取数据
+                String time = bundle.getString("time");
 
                 RequestBody requestBody = new MultipartBody.Builder()
                         .setType(MultipartBody.FORM)
+                        .addFormDataPart("time", time)
+                        .addFormDataPart("username", username)
                         .addFormDataPart("file", fileName, RequestBody.create(MediaType.parse("image/jpg"), file))
-                        .addFormDataPart("username",username)
                         .build();
                 Request build = new Request.Builder()
-                        .url("http://118.25.130.111/dashboard/uploadfile.php") //TomCat服务器
+                        .url("http://118.25.130.111/dashboard/uploadfile2.php") //PHP服务器
                         .post(requestBody)
                         .build();
                 new OkHttpClient().newCall(build).enqueue(new Callback() {
@@ -110,7 +135,6 @@ public class UploadimagesActivity extends AppCompatActivity implements View.OnCl
                                 Toast.makeText(UploadimagesActivity.this, "上传成功", Toast.LENGTH_SHORT).show();
                             }
                         });
-
                     }
                 });
              /*   new OkHttpClient().newCall(build).enqueue(new Callback() {

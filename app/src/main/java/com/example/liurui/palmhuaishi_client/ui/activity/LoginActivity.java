@@ -10,16 +10,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.content.SharedPreferences.Editor;
 
-import com.example.liurui.palmhuaishi_client.MainActivity;
 import com.example.liurui.palmhuaishi_client.R;
 import com.example.liurui.palmhuaishi_client.config.Consts;
 import com.example.liurui.palmhuaishi_client.model.User;
 import com.example.liurui.palmhuaishi_client.net.okgo.JsonCallback;
 import com.example.liurui.palmhuaishi_client.net.okgo.LslResponse;
 import com.example.liurui.palmhuaishi_client.utils.AppService;
-import com.example.liurui.palmhuaishi_client.utils.compress.App;
-import com.example.liurui.palmhuaishi_client.utils.compress.UIUtil;
 
 import okhttp3.Call;
 import okhttp3.Response;
@@ -77,12 +75,14 @@ public class LoginActivity extends AppCompatActivity {
                     //UIUtil.showToast(TAG);
                     // stopLoading();
                 } else {
+                    //存储用户信息
                     setUserInfo(userLslResponse.data);
+
                     Log.e(TAG, "登陆服务器成功！");
                     //创建Intent对象
                     Intent intent = new Intent();
                     //调用Intent的setClass方法
-                    intent.setClass(LoginActivity.this, UploadimagesActivity.class);
+                    intent.setClass(LoginActivity.this, ReleaseActivity.class);
                     //启动Activity
                     startActivity(intent);
                     // loginXin(currentUsername,currentPassword);
@@ -105,12 +105,12 @@ public class LoginActivity extends AppCompatActivity {
         }
         AppService.getInstance().setCurrentUser(data);
 
-        SharedPreferences.Editor editor = sp.edit();
+       /* Editor editor = sp.edit();
         editor.putString("username",data.username);
         editor.putString("password",data.password);
         editor.putString("nickname",data.nickname);
         editor.putInt("integral",data.integral);
-        editor.apply();
+        editor.apply();*/
     }
 
 }

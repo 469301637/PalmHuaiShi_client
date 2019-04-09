@@ -118,16 +118,16 @@ public class AppService {
      * @param files    文件集合
      * @param callback 回调
      */
-    public void upLoadFileAsync(List<File> files, JsonCallback<LslResponse<User>> callback) {
-        String url = Consts.API_SERVICE_HOST + "/attachment.php";
+        public void upLoadFileAsync(List<File> files, JsonCallback<LslResponse<User>> callback) {
+            String url = Consts.API_SERVICE_HOST + "/attachment.php";
 //        OkGo.post(url).params("size",files.size()).addFileParams("files",files).execute(callback);
 //        String url = Consts.API_SERVICE_HOST + "/user/avatar.php";
-        PostRequest postRequest = OkGo.post(url);
-        for (int i = 0; i < files.size(); i++) {
-            postRequest.params("file" + i, files.get(i), files.get(i).getName());
-        }
-        postRequest.params("size", files.size());
-        postRequest.execute(callback);
+            PostRequest postRequest = OkGo.post(url);
+            for (int i = 0; i < files.size(); i++) {
+                postRequest.params("file" + i, files.get(i), files.get(i).getName());
+            }
+            postRequest.params("size", files.size());
+            postRequest.execute(callback);
     }
 
 
