@@ -3,7 +3,6 @@ package com.example.liurui.palmhuaishi_client.ui.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.liurui.palmhuaishi_client.R;
-import com.example.liurui.palmhuaishi_client.model.User;
+import com.example.liurui.palmhuaishi_client.model.Release;
 import com.example.liurui.palmhuaishi_client.net.okgo.JsonCallback;
 import com.example.liurui.palmhuaishi_client.net.okgo.LslResponse;
 import com.example.liurui.palmhuaishi_client.utils.AppService;
@@ -41,10 +40,18 @@ public class ReleaseActivity extends AppCompatActivity {
         title = findViewById(R.id.release_title);
         content = findViewById(R.id.release_content);
         button = findViewById(R.id.release_button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String t = title.getText().toString().trim();
+                String c = content.getText().toString().trim();
+                //当前登录的用户名
+                String username = AppService.getInstance().getCurrentUser().username;
+                //  Log.e("username",username);
+                release(time,username, t, c);
+            }
+        });
 
-        String t = title.getText().toString().trim();
-        String c = content.getText().toString().trim();
-        release(time, t, c);
         imageView = findViewById(R.id.release_images);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,10 +67,10 @@ public class ReleaseActivity extends AppCompatActivity {
 
     }
 
-    private void release(String id, String title, String content) {
-        AppService.getInstance().releaseHytc(id, title, content, new JsonCallback<LslResponse<User>>() {
+    private void release(String id,String name, String title, String content) {
+        AppService.getInstance().releaseHytc(id,name, title, content, new JsonCallback<LslResponse<Release>>() {
             @Override
-            public void onSuccess(LslResponse<User> userLslResponse, Call call, Response response) {
+            public void onSuccess(LslResponse<Release> userLslResponse, Call call, Response response) {
                 if (userLslResponse.code == LslResponse.RESPONSE_OK) {
                     // Log.e(TAG,avatarUrl);
                     Toast.makeText(getApplicationContext(), "发布成功！", Toast.LENGTH_SHORT).show();

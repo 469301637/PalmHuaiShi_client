@@ -1,6 +1,7 @@
 package com.example.liurui.palmhuaishi_client.utils;
 
 import com.example.liurui.palmhuaishi_client.config.Consts;
+import com.example.liurui.palmhuaishi_client.model.Release;
 import com.example.liurui.palmhuaishi_client.model.User;
 import com.example.liurui.palmhuaishi_client.model.info.InfoModel;
 import com.example.liurui.palmhuaishi_client.net.okgo.JsonCallback;
@@ -86,14 +87,16 @@ public class AppService {
      * 用户发帖
      *
      * @param id       以时间戳为id
+     * @param username 记录发帖用户名
      * @param title    主题
      * @param content  内容
      * @param callback 回调
      */
-    public void releaseHytc(String id, String title, String content, JsonCallback<LslResponse<User>> callback) {
+    public void releaseHytc(String id, String username, String title, String content, JsonCallback<LslResponse<Release>> callback) {
         String url = Consts.API_SERVICE_HOST + "/release.php";
         HashMap<String, String> postParams = new HashMap<>();
         postParams.put("id", id);
+        postParams.put("username", username);
         postParams.put("title", title);
         postParams.put("content", content);
         OkGo.post(url).params(postParams).execute(callback);
