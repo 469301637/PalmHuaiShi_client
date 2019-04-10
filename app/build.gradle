@@ -76,8 +76,6 @@ dependencies {
     compile 'com.lzy.widget:imagepicker:0.5.5'
     //最新版本
 
-   // compile 'com.github.nanchen2251:CompressHelper:1.0.2'
-
     //上传图片
     compile 'com.github.open-android:ImageSelector:0.1.0'
 }

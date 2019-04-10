@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.liurui.palmhuaishi_client.ui.activity.UploadfileActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:text="点击上传文件"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/file"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="文件" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:text="请选择所属学院"
+                android:textSize="20dp" />
+
+            <Spinner
+                android:id="@+id/firstlevel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/firstspinner"></Spinner>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:text="请选择所属学科"
+                android:textSize="20dp" />
+
+            <Spinner
+                android:id="@+id/secondlevel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/secondspinner"></Spinner>
+        </LinearLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="上传" />
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>

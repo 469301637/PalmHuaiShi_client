@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="secondspinner">
+        <item>学科必修课</item>
+        <item>学科选修课</item>
+        <item>专业必修课</item>
+        <item>专业选修课</item>
+        <item>公共必修课</item>
+        <item>公共选修课</item>
+        <item>通识必修课</item>
+    </string-array>
+</resources>

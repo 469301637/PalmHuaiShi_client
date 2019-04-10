@@ -55,14 +55,14 @@ public class ReleaseActivity extends AppCompatActivity {
             }
         });
 
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(ReleaseActivity.this, UploadimagesActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putString("time", time);
-                // 将Bundle添加到Intent里面
-                intent.putExtra("data", bundle);
+                imageView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(ReleaseActivity.this, UploadimagesActivity.class);
+                        Bundle bundle = new Bundle();
+                        bundle.putString("time", time);
+                        // 将Bundle添加到Intent里面
+                        intent.putExtra("data", bundle);
                 startActivity(intent);
             }
         });
