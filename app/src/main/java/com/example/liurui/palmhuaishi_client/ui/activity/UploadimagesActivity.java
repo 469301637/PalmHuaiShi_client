@@ -50,8 +50,6 @@ public class UploadimagesActivity extends AppCompatActivity implements View.OnCl
     private List<String> path;//路径集合
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
