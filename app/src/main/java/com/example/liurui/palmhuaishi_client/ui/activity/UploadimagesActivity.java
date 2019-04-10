@@ -57,7 +57,7 @@ public class UploadimagesActivity extends AppCompatActivity implements View.OnCl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_uploadimages);
         initView();
-        finish();
+        UploadimagesActivity.this.finish();
     }
 
     private void initView() {

@@ -67,27 +67,27 @@ public class LoginActivity extends AppCompatActivity {
         @Override
         public void run() {*/
         AppService.getInstance().loginHytc(username, password, new JsonCallback<LslResponse<User>>() {
-            @Override
-            public void onSuccess(LslResponse<User> userLslResponse, Call call, Response response) {
-                if (userLslResponse.code != LslResponse.RESPONSE_OK) {
-                    Log.e(TAG, "用户名或密码错误!");
-                    Toast.makeText(getApplicationContext(), "用户名或密码错误!", Toast.LENGTH_SHORT).show();
-                    //UIUtil.showToast(TAG);
-                    // stopLoading();
-                } else {
-                    //存储用户信息
-                    setUserInfo(userLslResponse.data);
+                    @Override
+                    public void onSuccess(LslResponse<User> userLslResponse, Call call, Response response) {
+                        if (userLslResponse.code != LslResponse.RESPONSE_OK) {
+                            Log.e(TAG, "用户名或密码错误!");
+                            Toast.makeText(getApplicationContext(), "用户名或密码错误!", Toast.LENGTH_SHORT).show();
+                            //UIUtil.showToast(TAG);
+                            // stopLoading();
+                        } else {
+                            //存储用户信息
+                            setUserInfo(userLslResponse.data);
 
-                    Log.e(TAG, "登陆服务器成功！");
-                    //创建Intent对象
-                    Intent intent = new Intent();
-                    //调用Intent的setClass方法
-                    intent.setClass(LoginActivity.this, ReleaseActivity.class);
-                    //启动Activity
-                    startActivity(intent);
+                            Log.e(TAG, "登陆服务器成功！");
+                            //创建Intent对象
+                            Intent intent = new Intent();
+                            //调用Intent的setClass方法
+                            intent.setClass(LoginActivity.this, ReleaseActivity.class);
+                            //启动Activity
+                            startActivity(intent);
 
-                    // loginXin(currentUsername,currentPassword);
-                }
+                            // loginXin(currentUsername,currentPassword);
+                        }
             }
         });
     }

@@ -82,6 +82,22 @@ public class AppService {
         OkGo.post(url).params(postParams).execute(callback);
     }
 
+    /**
+     * 用户发帖
+     *
+     * @param id       以时间戳为id
+     * @param title    主题
+     * @param content  内容
+     * @param callback 回调
+     */
+    public void releaseHytc(String id, String title, String content, JsonCallback<LslResponse<User>> callback) {
+        String url = Consts.API_SERVICE_HOST + "/release.php";
+        HashMap<String, String> postParams = new HashMap<>();
+        postParams.put("id", id);
+        postParams.put("title", title);
+        postParams.put("content", content);
+        OkGo.post(url).params(postParams).execute(callback);
+    }
 
     /**
      * 异步发送消息给服务器
@@ -118,16 +134,16 @@ public class AppService {
      * @param files    文件集合
      * @param callback 回调
      */
-        public void upLoadFileAsync(List<File> files, JsonCallback<LslResponse<User>> callback) {
-            String url = Consts.API_SERVICE_HOST + "/attachment.php";
+    public void upLoadFileAsync(List<File> files, JsonCallback<LslResponse<User>> callback) {
+        String url = Consts.API_SERVICE_HOST + "/attachment.php";
 //        OkGo.post(url).params("size",files.size()).addFileParams("files",files).execute(callback);
 //        String url = Consts.API_SERVICE_HOST + "/user/avatar.php";
-            PostRequest postRequest = OkGo.post(url);
-            for (int i = 0; i < files.size(); i++) {
-                postRequest.params("file" + i, files.get(i), files.get(i).getName());
-            }
-            postRequest.params("size", files.size());
-            postRequest.execute(callback);
+        PostRequest postRequest = OkGo.post(url);
+        for (int i = 0; i < files.size(); i++) {
+            postRequest.params("file" + i, files.get(i), files.get(i).getName());
+        }
+        postRequest.params("size", files.size());
+        postRequest.execute(callback);
     }
 
 
