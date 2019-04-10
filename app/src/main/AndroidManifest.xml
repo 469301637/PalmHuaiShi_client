@@ -30,8 +30,8 @@
             android:label="@string/title_activity_login"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ui.activity.RegisterActivity" />
-        <activity android:name=".ui.activity.UploadimagesActivity"></activity>
-        <activity android:name=".ui.activity.ReleaseActivity"></activity>
+        <activity android:name=".ui.activity.ReleaseActivity"/>
+        <activity android:name=".ui.activity.UploadimagesActivity"/>
     </application>
 
 </manifest>

@@ -85,6 +85,7 @@ public class LoginActivity extends AppCompatActivity {
                     intent.setClass(LoginActivity.this, ReleaseActivity.class);
                     //启动Activity
                     startActivity(intent);
+
                     // loginXin(currentUsername,currentPassword);
                 }
             }

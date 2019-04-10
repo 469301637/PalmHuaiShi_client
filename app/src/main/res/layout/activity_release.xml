@@ -34,6 +34,7 @@
             android:text="发布" />
 
         <ImageView
+            android:src="@drawable/upload_images"
            android:id="@+id/release_images"
             android:layout_width="50dp"
             android:layout_height="50dp"
