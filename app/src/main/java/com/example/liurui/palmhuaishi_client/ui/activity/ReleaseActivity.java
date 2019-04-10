@@ -22,7 +22,7 @@ import okhttp3.Response;
 
 public class ReleaseActivity extends AppCompatActivity {
 
-    private static final String TAG = "ReleaseActivity";
+    //private static final String TAG = "ReleaseActivity";
 
     private ImageView imageView;
     private EditText title;
@@ -33,6 +33,7 @@ public class ReleaseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_release);
+
         //获取当前时间作为ID时间戳标记，与内容表一一对应！
         SimpleDateFormat tempDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         final String time = tempDate.format(new java.util.Date());
@@ -40,6 +41,8 @@ public class ReleaseActivity extends AppCompatActivity {
         title = findViewById(R.id.release_title);
         content = findViewById(R.id.release_content);
         button = findViewById(R.id.release_button);
+        imageView = findViewById(R.id.release_images);
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -52,7 +55,6 @@ public class ReleaseActivity extends AppCompatActivity {
             }
         });
 
-        imageView = findViewById(R.id.release_images);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

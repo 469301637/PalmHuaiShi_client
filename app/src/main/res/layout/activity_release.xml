@@ -34,10 +34,11 @@
             android:text="发布" />
 
         <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:src="@drawable/upload_images"
-           android:id="@+id/release_images"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:id="@+id/release_images"
+            android:scaleType="centerInside"
             />
 
     </LinearLayout>
