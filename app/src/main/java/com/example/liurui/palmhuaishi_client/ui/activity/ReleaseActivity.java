@@ -51,26 +51,26 @@ public class ReleaseActivity extends AppCompatActivity {
                 //当前登录的用户名
                 String username = AppService.getInstance().getCurrentUser().username;
                 //  Log.e("username",username);
-                release(time,username, t, c);
+                release(time, username, t, c);
             }
         });
 
-                imageView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Intent intent = new Intent(ReleaseActivity.this, UploadimagesActivity.class);
-                        Bundle bundle = new Bundle();
-                        bundle.putString("time", time);
-                        // 将Bundle添加到Intent里面
-                        intent.putExtra("data", bundle);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ReleaseActivity.this, UploadimagesActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("time", time);
+                // 将Bundle添加到Intent里面
+                intent.putExtra("data", bundle);
                 startActivity(intent);
             }
         });
 
     }
 
-    private void release(String id,String name, String title, String content) {
-        AppService.getInstance().releaseHytc(id,name, title, content, new JsonCallback<LslResponse<Release>>() {
+    private void release(String id, String name, String title, String content) {
+        AppService.getInstance().releaseHytc(id, name, title, content, new JsonCallback<LslResponse<Release>>() {
             @Override
             public void onSuccess(LslResponse<Release> userLslResponse, Call call, Response response) {
                 if (userLslResponse.code == LslResponse.RESPONSE_OK) {

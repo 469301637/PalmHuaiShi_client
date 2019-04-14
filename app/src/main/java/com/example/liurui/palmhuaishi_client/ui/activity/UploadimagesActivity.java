@@ -40,8 +40,8 @@ import java.util.Date;
  */
 
 public class UploadimagesActivity extends AppCompatActivity implements View.OnClickListener {
-    private static final int REQUEST_CODE_SELECT_IMG = 1;
-    private static final int MAX_SELECT_COUNT = 9;
+    private static final int REQUEST_CODE_SELECT_IMG = 1;  //请求码
+    private static final int MAX_SELECT_COUNT = 9; //最多可选择9张图片
     private TextView mContentTv;//设置图片路径
     private Button btn;
     private File file;
@@ -55,7 +55,7 @@ public class UploadimagesActivity extends AppCompatActivity implements View.OnCl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_uploadimages);
         initView();
-        UploadimagesActivity.this.finish();
+        //UploadimagesActivity.this.finish();
     }
 
     private void initView() {

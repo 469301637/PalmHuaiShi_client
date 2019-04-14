@@ -18,24 +18,6 @@
             <TextView
                 android:layout_width="200dp"
                 android:layout_height="50dp"
-                android:text="点击文件上传："
-                android:textSize="20dp" />
-
-            <Button
-                android:id="@+id/file"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="文件" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="200dp"
-                android:layout_height="50dp"
                 android:text="请选择所属学院："
                 android:textSize="20dp" />
 
@@ -64,7 +46,26 @@
                 android:entries="@array/secondspinner"></Spinner>
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:text="点击文件上传："
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/uploadfile_file"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="文件" />
+        </LinearLayout>
+
         <Button
+            android:id="@+id/uploadfile_upload"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="上传" />
