@@ -20,6 +20,7 @@ import com.lzy.okhttputils.callback.StringCallback;
 import com.lzy.okhttputils.OkHttpUtils;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import okhttp3.Call;
@@ -35,9 +36,6 @@ public class FileActivity extends AppCompatActivity {
     //上传地址
     private String uploadfile = "http://118.25.130.111/dashboard/upload_file.php";
     //为了测试方便
-    private String time = "02774bc536964386a68bd2b64145c910";
-    private String taskid = "f92a591a37fe4677b7a239158c14fbca";
-
     private String filename;
 
     private fileAdapter myAdapter;
@@ -51,7 +49,7 @@ public class FileActivity extends AppCompatActivity {
         addattachment = (RelativeLayout) findViewById(R.id.addattachment);
         listView = (ListView) findViewById(R.id.filelist);
 
-        initdata();
+        // initdata();
 
         upload();
 
@@ -80,27 +78,10 @@ public class FileActivity extends AppCompatActivity {
 
     //上传成功后刷新
     private void initdata() {
-        Intent intent = getIntent();
-        //从intent取出bundle
-        Bundle bundle = intent.getBundleExtra("data");
-        //获取数据
-        String first = bundle.getString("first");
-        String second = bundle.getString("second");
 
-        //当前登录的用户名
-        String username = AppService.getInstance().getCurrentUser().username;
-        //  Log.e("username",username);
 
-        //打印一下看看
-        Log.e("file_first",first);
-        Log.e("file_second",second);
+        OkHttpUtils.post(Sever)
 
-        OkHttpUtils.get(Sever)
-                .params("time", time)
-                .params("username", username)
-                .params("filename", filename)
-                .params("firstlevel", first)
-                .params("secondlevel", second)
                 .execute(new StringCallback() {
                     @Override
                     public void onSuccess(String s, Call call, Response response) {
@@ -142,17 +123,43 @@ public class FileActivity extends AppCompatActivity {
     //然后路径拿到了就访问服务器上传
     private void UploadFile(String url) {
         final File file = new File(url);
+        filename = file.getName();
+        Log.e("file_name", filename);
+        Intent intent = getIntent();
+        //从intent取出bundle
+        Bundle bundle = intent.getBundleExtra("data");
+        //获取数据
+        String first = bundle.getString("first");
+        String second = bundle.getString("second");
+
+        Log.e("file_first", first);
+        Log.e("file_second", second);
+        //当前登录的用户名
+        //String username = AppService.getInstance().getCurrentUser().username;
+        String username="test";
+        //  Log.e("username",username);
+
+        //打印一下看看
+        Log.e("file_first", first);
+        Log.e("file_second", second);
+
+        //获取当前时间作为ID时间戳标记，与内容表一一对应！
+        SimpleDateFormat tempDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        final String time = tempDate.format(new java.util.Date());
+
         OkHttpUtils.post(uploadfile)
                 .params("time", time)
-                .params("taskid", taskid)
-                .params("assid", "")
+                .params("username", username)
+                .params("filename", filename)
+                .params("firstlevel", first)
+                .params("secondlevel", second)
                 .params("file", file)
                 .execute(new StringCallback() {
                     @Override
                     public void onSuccess(String s, Call call, Response response) {
 
-                        initdata();//上传成功后刷新
-                        Log.e("yes",file.getName());
+                        //  initdata();//上传成功后刷新
+                        Log.e("yes", file.getName());
                     }
                 });
     }
