@@ -1,3 +1,4 @@
+/*
 package com.example.liurui.palmhuaishi_client.adapter;
 
 import android.content.Context;
@@ -13,9 +14,11 @@ import com.example.liurui.palmhuaishi_client.bean.UploadBean;
 
 import java.util.List;
 
+*/
 /**
  * Created by liurui on 2019.4.11.
- */
+ *//*
+
 
 public class MultiAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
@@ -34,10 +37,12 @@ public class MultiAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         return position;
     }
 
-    /**
+    */
+/**
      * 设置
      * @param mData
-     */
+     *//*
+
     public void setDatas(List<UploadBean> mData){
         this.mData = mData;
     }
@@ -72,11 +77,13 @@ public class MultiAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
     }
 
-    /**
+    */
+/**
      * 处理进度条文本
      * @param tv_present
      * @param dataListBean
-     */
+     *//*
+
     private void dealUploadText(TextView tv_present, UploadBean dataListBean){
         if(dataListBean == null){
             return;
@@ -122,4 +129,4 @@ public class MultiAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     }
 
 
-}
+}*/

@@ -1,5 +1,6 @@
 package com.example.liurui.palmhuaishi_client.ui.activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,7 +19,6 @@ public class UploadfileActivity extends AppCompatActivity {
     private Button upload;
     private Spinner firstlevel;
     private Spinner secondlevel;
-    private UploadUtil mUploadUtil;
     String first;
     String second;
 
@@ -35,7 +35,7 @@ public class UploadfileActivity extends AppCompatActivity {
                                        int pos, long id) {
 
                 String[] languages = getResources().getStringArray(R.array.firstspinner);
-                 first = languages[pos];
+                first = languages[pos];
 
                 // Toast.makeText(UploadfileActivity.this, "你点击的是:"+languages[pos], 1000).show();
             }
@@ -70,8 +70,14 @@ public class UploadfileActivity extends AppCompatActivity {
                 //测试是否可以取值
                 Log.e("first", first);
                 Log.e("second", second);
-                //上传文件工具类
-                mUploadUtil=new UploadUtil();
+                //开始跳转页面然后上传啦！
+                Intent intent = new Intent(UploadfileActivity.this, FileActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("first", first);
+                bundle.putString("second",second);
+                // 将Bundle添加到Intent里面
+                intent.putExtra("data", bundle);
+                startActivity(intent);
             }
         });
 
