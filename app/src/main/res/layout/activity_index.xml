@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.liurui.palmhuaishi_client.ui.activity.IndexActivity">
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="201dp"
+        app:srcCompat="@drawable/hytc_index"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+</LinearLayout>
+
+    //消息提示（待开发）
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+
+    </LinearLayout>
+//第一排图标
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="201dp"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:layout_width="188dp"
+            android:layout_height="104dp"
+            android:src="@drawable/hytc_index_1"
+            android:id="@+id/indxe_1"/>
+
+        <ImageView
+            android:layout_width="145dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/hytc_index_2"
+            android:id="@+id/index_2"/>
+
+    </LinearLayout>
+//第一排字体
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteY="299dp"
+        tools:ignore="MissingConstraints"
+        >
+
+        <TextView
+            android:layout_width="191dp"
+            android:layout_height="match_parent"
+            android:text="                  关于淮师"
+           />
+
+        <TextView
+            android:layout_width="188dp"
+            android:layout_height="wrap_content"
+            android:text="                  校园资讯" />
+    </LinearLayout>
+
+//第二排图标
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="123dp"
+        android:orientation="horizontal"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="318dp">
+
+        <ImageView
+            android:id="@+id/index_3"
+            android:layout_width="186dp"
+            android:layout_height="140dp"
+            android:src="@drawable/hytc_index_4" />
+
+        <ImageView
+            android:id="@+id/index_4"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:src="@drawable/hytc_index_3" />
+
+    </LinearLayout>
+
+
+    //第二排文字
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:orientation="horizontal"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="430dp">
+
+        <TextView
+            android:layout_width="191dp"
+            android:layout_height="match_parent"
+            android:text="                  信息公开" />
+
+        <TextView
+            android:layout_width="188dp"
+            android:layout_height="wrap_content"
+            android:text="                  校园地图" />
+    </LinearLayout>
+
+
+    //最后一排60周年庆
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="119dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="430dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/hytc_60th">
+
+        </ImageView>
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

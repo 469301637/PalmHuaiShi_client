@@ -80,5 +80,5 @@ dependencies {
     compile 'com.github.open-android:ImageSelector:0.1.0'
     //上传文件
     compile 'com.lzy.net:okhttputils:1.8.1'
-   // compile 'com.google.code.gson:gson:2.2.4'
+    // compile 'com.google.code.gson:gson:2.2.4'
 }
