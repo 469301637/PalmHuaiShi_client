@@ -1,9 +1,11 @@
 package com.example.liurui.palmhuaishi_client.ui.view;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.webkit.WebView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -18,6 +20,9 @@ import com.example.liurui.palmhuaishi_client.ui.activity.LoginActivity;
 import com.example.liurui.palmhuaishi_client.ui.activity.ReleaseActivity;
 import com.example.liurui.palmhuaishi_client.utils.AppService;
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -28,32 +33,62 @@ import okhttp3.Response;
 public class ShowmaterialActivity extends AppCompatActivity {
 
 
-    private static final String TAG = "ShowmaterialActivitys";
-    //先测试一下，以后再改成intent数据传输过来的值
-    private String type = "文学院";
-    private ListView listView;
+    /*  private static final String TAG = "ShowmaterialActivitys";
+      //先测试一下，以后再改成intent数据传输过来的值
+      private String type = "文学院";
+      private ListView listView;*/
+    private WebView webView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_showmaterial);
-        listView = findViewById(R.id.showmaterial);
-        Show();
+
+
+        webView = findViewById(R.id.show_web);
+        initWebView();
     }
 
-    public void Show() {
+    private void initWebView() {
+        //加载一个网页：
+        webView.loadUrl("http://118.25.130.111/dashboard/files/all.php");
+    }
+        /*Intent intent = new Intent();
+
+//Intent intent = new Intent(Intent.ACTION_VIEW,uri);
+
+        intent.setAction("android.intent.action.VIEW");
+
+        Uri content_url = Uri.parse("http://118.25.130.111/dashboard/files/all.php");
+
+        intent.setData(content_url);
+
+        startActivity(intent);*/
+
+}
+
+
+   /* public void Show() {
 
         AppService.getInstance().getmaterial(type, new JsonCallback<LslResponse<Material>>() {
             @Override
             public void onSuccess(LslResponse<Material> materialLslResponse, Call call, Response response) {
-                String json = null;
-                try {
-                     json = response.body().string();
-                } catch (IOException e) {
-                    e.printStackTrace();
+               *//* String json = null;
+                     json = materialLslResponse.data.toString();
+                     Log.e(TAG,json);*//*
+
+                Gson gson = new Gson();//创建Gson对象
+                JsonParser jsonParser = new JsonParser();
+                JsonArray jsonElements = null;
+                     jsonElements = jsonParser.parse(response.body().toString()).getAsJsonArray();//获取JsonArray对象
+                ArrayList<Material> beans = new ArrayList<>();
+                for (JsonElement bean : jsonElements) {
+                    Material bean1 = gson.fromJson(bean, Material.class);//解析
+                    beans.add(bean1);
                 }
-               Toast.makeText(ShowmaterialActivity.this,json,Toast.LENGTH_SHORT);
-            }
+                Toast.makeText(ShowmaterialActivity.this,beans.get(1).id,Toast.LENGTH_LONG);
+                Log.e(TAG,beans.get(1).id);
+            }*/
 
            /* @Override
             public void onSuccess(LslResponse<User> userLslResponse, Call call, Response response) {
@@ -77,7 +112,7 @@ public class ShowmaterialActivity extends AppCompatActivity {
                     // loginXin(currentUsername,currentPassword);
                 }
             }*/
-        });
+     /*   });
 
     }
-}
+}*/
