@@ -1,9 +1,11 @@
 package com.example.liurui.palmhuaishi_client.utils;
 
 import com.example.liurui.palmhuaishi_client.config.Consts;
+import com.example.liurui.palmhuaishi_client.model.Material;
 import com.example.liurui.palmhuaishi_client.model.Release;
 import com.example.liurui.palmhuaishi_client.model.User;
 import com.example.liurui.palmhuaishi_client.model.info.InfoModel;
+import com.example.liurui.palmhuaishi_client.model.info.UserModel;
 import com.example.liurui.palmhuaishi_client.net.okgo.JsonCallback;
 import com.example.liurui.palmhuaishi_client.net.okgo.LslResponse;
 import com.lzy.okgo.OkGo;
@@ -100,6 +102,17 @@ public class AppService {
         postParams.put("title", title);
         postParams.put("content", content);
         OkGo.post(url).params(postParams).execute(callback);
+    }
+
+
+    /**
+     * 异步获取用户上传的所有复习资料
+     *  @param type     二级学院的分类（比如计科院等）
+     * @param callback 回调
+     */
+    public void getmaterial(String type, JsonCallback<LslResponse<Material>> callback) {
+        String url = Consts.API_SERVICE_HOST + "/info/get_material.php?type=" + type;
+        OkGo.get(url).execute(callback);
     }
 
     /**

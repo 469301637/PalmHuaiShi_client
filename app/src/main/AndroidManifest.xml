@@ -18,7 +18,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activity.IndexActivity">
+        <activity android:name=".ui.view.ShowmaterialActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -36,7 +36,9 @@
         <!-- <activity android:name=".ui.activity.MultiUploadActivity"></activity> -->
         <!-- <activity android:name=".ui.activity.TestActivity"></activity> -->
         <activity android:name=".ui.activity.FileActivity" />
-        <!--<activity android:name=".ui.activity.IndexActivity"></activity>-->
+        <!-- <activity android:name=".ui.activity.IndexActivity"></activity> -->
+        <!-- <activity android:name=".ui.view.MaterialActivity"></activity> -->
+      <!--  <activity android:name=".ui.view.ShowmaterialActivity"></activity>-->
     </application>
 
 </manifest>
