@@ -36,7 +36,7 @@ public class MyDetailActivity extends AppCompatActivity {
 String username="2115110249";
         //先测试一下
         map.put("username","2115110249");
-        
+
         //测试
        // Log.e("1",map.get("username"));
         //加载一个网页：(有请求头)
