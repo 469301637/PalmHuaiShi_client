@@ -18,7 +18,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.view.ShowmaterialActivity">
+        <activity android:name=".ui.activity.MyActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -38,7 +38,9 @@
         <activity android:name=".ui.activity.FileActivity" />
         <!-- <activity android:name=".ui.activity.IndexActivity"></activity> -->
         <!-- <activity android:name=".ui.view.MaterialActivity"></activity> -->
-      <!--  <activity android:name=".ui.view.ShowmaterialActivity"></activity>-->
+        <!-- <activity android:name=".ui.view.ShowmaterialActivity"></activity> -->
+        <!-- <activity android:name=".ui.activity.MyActivity"></activity> -->
+        <activity android:name=".ui.view.MyDetailActivity"></activity>
     </application>
 
 </manifest>

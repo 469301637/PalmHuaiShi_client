@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    xmlns:leon="http://schemas.android.com/apk/res-auto"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.liurui.palmhuaishi_client.ui.activity.MyActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginBottom="16dp"
+        android:background="#fff"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:src="@drawable/hytc_icon"
+            app:civ_border_color="#FFFFFF"
+            app:civ_border_width="2dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="小飞象"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.leon.lib.settingview.LSettingItem
+        android:id="@+id/item_one"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        leon:leftIcon="@drawable/hytc_icon"
+        leon:leftText="         个人信息" />
+
+    <com.leon.lib.settingview.LSettingItem
+        android:id="@+id/item_two"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        leon:leftIcon="@drawable/hytc_icon"
+        leon:leftText="         我的帖子"
+        />
+
+    <com.leon.lib.settingview.LSettingItem
+        android:id="@+id/item_three"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        leon:leftIcon="@drawable/hytc_icon"
+        leon:leftText="         我的积分                                                          10"
+        leon:rightStyle="iconHide"
+       />
+
+
+
+    <com.leon.lib.settingview.LSettingItem
+        android:id="@+id/item_six"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/MyCheckBox"
+        leon:leftIcon="@drawable/hytc_icon"
+        leon:rightStyle="iconHide"
+        leon:leftText="         软件版本                                                   version1.0" />
+
+
+</LinearLayout>
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

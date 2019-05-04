@@ -30,6 +30,10 @@ import java.util.ArrayList;
 import okhttp3.Call;
 import okhttp3.Response;
 
+/**
+ * Created by liurui on 2019.4.10.
+ * 真是一点都不想写代码！！！可是又不能偷懒~~~
+ */
 public class ShowmaterialActivity extends AppCompatActivity {
 
 
@@ -50,7 +54,7 @@ public class ShowmaterialActivity extends AppCompatActivity {
     }
 
     private void initWebView() {
-        //加载一个网页：
+        //加载一个网页：(没有请求头QAQ)
         webView.loadUrl("http://118.25.130.111/dashboard/files/all.php");
     }
         /*Intent intent = new Intent();
