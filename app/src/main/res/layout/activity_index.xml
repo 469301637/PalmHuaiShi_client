@@ -7,61 +7,76 @@
     android:orientation="vertical"
     tools:context="com.example.liurui.palmhuaishi_client.ui.activity.IndexActivity">
 <LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
-
-    <ImageView
-        android:id="@+id/imageView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="201dp"
-        app:srcCompat="@drawable/hytc_index"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
-</LinearLayout>
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="201dp"
+            app:srcCompat="@drawable/hytc_index"
+           />
+    </LinearLayout>
 
     //消息提示（待开发）
+
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        >
+        android:layout_height="30dp">
+
+        <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/index_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:singleLine="true"
+            android:text="欢迎大家使用智慧淮师APP，本APP集成校园资讯、校内资源分享、校园论坛等板块，期待您的加入！" />
 
     </LinearLayout>
-//第一排图标
+
+    //第一排图标
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="201dp"
-        tools:ignore="MissingConstraints">
+        android:layout_gravity="center"
+       >
 
         <ImageView
+            android:id="@+id/indxe_1"
             android:layout_width="188dp"
             android:layout_height="104dp"
-            android:src="@drawable/hytc_index_1"
-            android:id="@+id/indxe_1"/>
+            android:src="@drawable/hytc_index_1" />
 
         <ImageView
+            android:id="@+id/index_2"
             android:layout_width="145dp"
             android:layout_height="match_parent"
-            android:src="@drawable/hytc_index_2"
-            android:id="@+id/index_2"/>
+            android:src="@drawable/hytc_index_2" />
 
     </LinearLayout>
-//第一排字体
+    //第一排字体
+
     <LinearLayout
+        android:layout_gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="30dp"
         android:orientation="horizontal"
-        tools:layout_editor_absoluteY="299dp"
         tools:ignore="MissingConstraints"
-        >
+        tools:layout_editor_absoluteY="299dp">
 
         <TextView
             android:layout_width="191dp"
             android:layout_height="match_parent"
-            android:text="                  关于淮师"
-           />
+            android:text="                  关于淮师" />
 
         <TextView
             android:layout_width="188dp"
@@ -69,15 +84,14 @@
             android:text="                  校园资讯" />
     </LinearLayout>
 
-//第二排图标
+    //第二排图标
 
     <LinearLayout
+        android:layout_gravity="center"
         android:layout_width="match_parent"
         android:layout_height="123dp"
         android:orientation="horizontal"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="318dp">
+        >
 
         <ImageView
             android:id="@+id/index_3"
@@ -97,12 +111,11 @@
     //第二排文字
 
     <LinearLayout
+        android:layout_gravity="center"
         android:layout_width="match_parent"
         android:layout_height="20dp"
         android:orientation="horizontal"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="430dp">
+       >
 
         <TextView
             android:layout_width="191dp"
@@ -133,4 +146,60 @@
 
         </ImageView>
     </LinearLayout>
+
+    //最底下的导航栏
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center">
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/index_but1"
+            android:src="@drawable/tab_1"/>
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/index_but2"
+            android:src="@drawable/tab_2"/>
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/index_but3"
+            android:src="@drawable/tab_3"/>
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/index_but4"
+            android:src="@drawable/tab_4"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:text="          首页" />
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="资料" />
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:text="论坛" />
+
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text=" 我的" />
+    </LinearLayout>
+</LinearLayout>
 </android.support.constraint.ConstraintLayout>

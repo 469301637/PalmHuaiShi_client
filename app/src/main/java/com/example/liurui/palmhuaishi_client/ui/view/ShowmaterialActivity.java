@@ -48,14 +48,19 @@ public class ShowmaterialActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_showmaterial);
 
+        Intent intent = getIntent();
+        //从intent取出bundle
+        Bundle bundle = intent.getBundleExtra("data");
+        //获取数据
+        String school = bundle.getString("secondlevel");
 
         webView = findViewById(R.id.show_web);
-        initWebView();
+        initWebView(school);
     }
 
-    private void initWebView() {
+    private void initWebView(String text) {
         //加载一个网页：(没有请求头QAQ)
-        webView.loadUrl("http://118.25.130.111/dashboard/files/all.php");
+        webView.loadUrl("http://118.25.130.111/dashboard/files/all.php?firstlevel="+text);
     }
         /*Intent intent = new Intent();
 

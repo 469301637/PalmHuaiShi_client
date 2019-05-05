@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -37,6 +38,12 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        //透明状态栏
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+
+
         uid = (EditText) findViewById(R.id.login_username);
         pwd = (EditText) findViewById(R.id.login_password);
         button = findViewById(R.id.login_login);
@@ -83,7 +90,7 @@ public class LoginActivity extends AppCompatActivity {
                     //创建Intent对象
                     Intent intent = new Intent();
                     //调用Intent的setClass方法
-                    intent.setClass(LoginActivity.this, ReleaseActivity.class);
+                    intent.setClass(LoginActivity.this, IndexActivity.class);
                     //启动Activity
                     startActivity(intent);
                     LoginActivity.this.finish();

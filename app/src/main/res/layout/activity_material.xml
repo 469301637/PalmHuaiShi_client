@@ -15,6 +15,7 @@
         android:layout_height="wrap_content">
 //搜索框
         <SearchView
+            android:id="@+id/material_search"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"></SearchView>
     </LinearLayout>
@@ -25,16 +26,19 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <Button
+            android:id="@+id/material_wxy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="文学院"
             android:textColor="@color/green"/>
         <Button
+            android:id="@+id/material_wgy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="外国语学院"
             android:textColor="@color/green"/>
         <Button
+            android:id="@+id/material_wd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="物理与电子电气工程学院"
@@ -45,16 +49,19 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <Button
+            android:id="@+id/material_sk"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="数学科学学院"
             android:textColor="@color/green"/>
         <Button
+            android:id="@+id/material_sm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="生命科学学院"
             android:textColor="@color/green"/>
         <Button
+            android:id="@+id/material_jk"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="计算机科学与技术学院"
@@ -65,16 +72,19 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <Button
+            android:id="@+id/material_jy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="教育科学学院"
             android:textColor="@color/green"/>
         <Button
+            android:id="@+id/material_hy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="化学化工学院"
             android:textColor="@color/green"/>
         <Button
+            android:id="@+id/material_fl"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="法律政治与公共管理学院"
@@ -85,16 +95,19 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <Button
+            android:id="@+id/material_cm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="传媒学院"
             android:textColor="@color/green"/>
         <Button
+            android:id="@+id/material_ch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="城市与环境学院"
             android:textColor="@color/green"/>
         <Button
+            android:id="@+id/material_ls"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="历史文化旅游学院"
@@ -106,21 +119,25 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <Button
+            android:id="@+id/material_msxy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="美术学院"
             android:textColor="@color/green"/>
         <Button
+            android:id="@+id/material_mkszy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="马克思主义学院"
             android:textColor="@color/green"/>
         <Button
+            android:id="@+id/material_tyxy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="体育学院"
             android:textColor="@color/green"/>
         <Button
+            android:id="@+id/material_yyxy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="音乐学院"
@@ -130,5 +147,61 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:src="@drawable/hytc_index"/>
+
+
+    //最底下的导航栏
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center">
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/material_but1"
+            android:src="@drawable/tab_1"/>
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/material_but2"
+            android:src="@drawable/tab_2"/>
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/material_but3"
+            android:src="@drawable/tab_3"/>
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/material_but4"
+            android:src="@drawable/tab_4"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:text="          首页" />
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="资料" />
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:text="论坛" />
+
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text=" 我的" />
+    </LinearLayout>
 </LinearLayout>
 </android.support.constraint.ConstraintLayout>

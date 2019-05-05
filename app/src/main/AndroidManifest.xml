@@ -18,7 +18,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activity.MyActivity">
+        <activity android:name=".ui.activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -31,16 +31,17 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ui.activity.RegisterActivity" />
         <activity android:name=".ui.activity.ReleaseActivity" />
-        <!-- <activity android:name=".ui.activity.UploadimagesActivity" /> -->
-        <!-- <activity android:name=".ui.activity.UploadfileActivity"></activity> -->
-        <!-- <activity android:name=".ui.activity.MultiUploadActivity"></activity> -->
-        <!-- <activity android:name=".ui.activity.TestActivity"></activity> -->
+        -->
+        <activity android:name=".ui.activity.UploadimagesActivity" />
+        <activity android:name=".ui.activity.UploadfileActivity" />
         <activity android:name=".ui.activity.FileActivity" />
-        <!-- <activity android:name=".ui.activity.IndexActivity"></activity> -->
-        <!-- <activity android:name=".ui.view.MaterialActivity"></activity> -->
-        <!-- <activity android:name=".ui.view.ShowmaterialActivity"></activity> -->
-        <!-- <activity android:name=".ui.activity.MyActivity"></activity> -->
-        <activity android:name=".ui.view.MyDetailActivity"></activity>
+        <activity android:name=".ui.activity.IndexActivity" />
+        <activity android:name=".ui.view.MaterialActivity" />
+        <activity android:name=".ui.view.ShowmaterialActivity" />
+        <activity android:name=".ui.activity.MyActivity" />
+        <activity android:name=".ui.view.MyDetailActivity" />
+        <activity android:name=".ui.activity.HTMLActivity" />
+        <activity android:name=".ui.view.BBSIndexActivity"></activity>
     </application>
 
 </manifest>

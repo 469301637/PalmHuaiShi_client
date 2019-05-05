@@ -10,6 +10,7 @@ import com.example.liurui.palmhuaishi_client.net.okgo.JsonCallback;
 import com.example.liurui.palmhuaishi_client.net.okgo.LslResponse;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.request.PostRequest;
+import com.lzy.okhttputils.OkHttpUtils;
 
 import java.io.File;
 import java.util.Date;
@@ -102,6 +103,20 @@ public class AppService {
         postParams.put("title", title);
         postParams.put("content", content);
         OkGo.post(url).params(postParams).execute(callback);
+
+    }
+
+
+
+    /**
+     * 回调积分
+     *
+     */
+    public void get_integral(String name, JsonCallback<LslResponse<User>> callback) {
+        String url = Consts.API_SERVICE_HOST + "/mydetail/get_integral.php";
+        HashMap<String, String> getParams = new HashMap<>();
+        getParams.put("username", name);
+        OkGo.get(url).params(getParams).execute(callback);
     }
 
 
