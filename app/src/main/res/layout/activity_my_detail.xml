@@ -11,12 +11,67 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <WebView
-            android:id="@+id/my_detail"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
-    </WebView>
+       <LinearLayout
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal"
+           android:layout_gravity="center">
+
+           <EditText
+               android:id="@+id/my_detail_username"
+               android:layout_width="300dp"
+               android:layout_height="wrap_content"
+               android:textSize="30dp"
+
+
+               />
+           <ImageView
+               android:id="@+id/my_detail_username_img"
+               android:layout_width="50dp"
+               android:layout_height="50dp"
+               android:src="@drawable/yes"
+               />
+       </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+
+            <EditText
+                android:id="@+id/my_detail_password"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:textSize="30dp"
+                android:text="jhgdjgqdw g"
+                />
+            <ImageView
+                android:id="@+id/my_detail_password_img"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/yes"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+
+            <EditText
+                android:id="@+id/my_detail_iphone"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:textSize="30dp"
+                android:text="jhgdjgqdw g"
+                />
+            <ImageView
+                android:id="@+id/my_detail_iphone_img"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/yes"
+                />
+        </LinearLayout>
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

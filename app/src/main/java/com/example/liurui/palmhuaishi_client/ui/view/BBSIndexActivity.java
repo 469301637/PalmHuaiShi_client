@@ -1,6 +1,7 @@
 package com.example.liurui.palmhuaishi_client.ui.view;
 
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,8 +11,9 @@ import android.widget.ImageView;
 import com.example.liurui.palmhuaishi_client.R;
 import com.example.liurui.palmhuaishi_client.ui.activity.IndexActivity;
 import com.example.liurui.palmhuaishi_client.ui.activity.MyActivity;
+import com.example.liurui.palmhuaishi_client.ui.activity.ReleaseActivity;
 
-public class BBSIndexActivity extends AppCompatActivity {
+public class BBSIndexActivity extends AppCompatActivity  {
 
     private WebView webView;
     private ImageView imageView1;
@@ -19,12 +21,27 @@ public class BBSIndexActivity extends AppCompatActivity {
     private ImageView imageView3;
     private ImageView imageView4;
 
+    private FloatingActionButton fab01Add;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bbsindex);
-
+        fab01Add =findViewById(R.id.bbs_upload);
         webView = findViewById(R.id.BBS_index);
+
+        //上传按钮的监听
+
+        fab01Add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent();
+                intent.setClass(BBSIndexActivity.this,ReleaseActivity.class);
+                startActivity(intent);
+
+            }
+        });
 
         webView.loadUrl("http://118.25.130.111/dashboard/bbs/main_show.php");
 
@@ -39,7 +56,7 @@ public class BBSIndexActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent intent = new Intent();
-                intent.setClass(BBSIndexActivity.this,IndexActivity.class);
+                intent.setClass(BBSIndexActivity.this, IndexActivity.class);
                 startActivity(intent);
 
             }
@@ -51,7 +68,7 @@ public class BBSIndexActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent intent = new Intent();
-                intent.setClass(BBSIndexActivity.this,MaterialActivity.class);
+                intent.setClass(BBSIndexActivity.this, MaterialActivity.class);
                 startActivity(intent);
 
             }
@@ -70,14 +87,13 @@ public class BBSIndexActivity extends AppCompatActivity {
         });
 
 
-
         //底部导航栏第四个（我的）
         imageView4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 Intent intent = new Intent();
-                intent.setClass(BBSIndexActivity.this,MyActivity.class);
+                intent.setClass(BBSIndexActivity.this, MyActivity.class);
                 startActivity(intent);
 
             }
@@ -85,4 +101,6 @@ public class BBSIndexActivity extends AppCompatActivity {
 
 
     }
+
+
 }

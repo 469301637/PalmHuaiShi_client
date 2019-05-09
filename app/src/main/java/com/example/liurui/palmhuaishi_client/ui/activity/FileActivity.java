@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.example.liurui.palmhuaishi_client.R;
 import com.example.liurui.palmhuaishi_client.adapter.fileAdapter;
 import com.example.liurui.palmhuaishi_client.config.Data_huoqurenwuxiangqing;
+import com.example.liurui.palmhuaishi_client.ui.view.MaterialActivity;
 import com.example.liurui.palmhuaishi_client.utils.AppService;
 import com.example.liurui.palmhuaishi_client.utils.compress.FileUtils2;
 import com.example.liurui.palmhuaishi_client.utils.compress.JsonUtil;
@@ -51,6 +52,7 @@ public class FileActivity extends AppCompatActivity {
 
         // initdata();
 
+        Log.e("test","1");
         upload();
 
     }
@@ -62,10 +64,11 @@ public class FileActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(FileActivity.this, "添加附件", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-                intent.setType("*/*");//设置类型，我这里是任意类型，任意后缀的可以这样写。
+                // intent.setType("*/*");//设置类型，我这里是任意类型，任意后缀的可以这样写。
+                intent.setType("doc/*;docx/*;pdf/*;xls/*;xlsx/*;xlsm/*;txt/*");//同时选择word和excel、pdf
                 intent.addCategory(Intent.CATEGORY_OPENABLE);
                 startActivityForResult(intent, 1);
-
+                Log.e("test","2");
                 //startActivityForResult(Intent.createChooser(intent, "Select a File to Upload"), 1);
                 //intent.setType(“image/*”);//选择图片
                 //intent.setType(“audio/*”); //选择音频
@@ -101,6 +104,7 @@ public class FileActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         //if (resultCode == Activity.RESULT_OK) {//是否选择，没选择就不会继续
+        Log.e("test","3");
         try {
             Uri uri = data.getData();//得到uri，后面就是将uri转化成file的过程。
             Log.e("文件路径--", uri + "");
@@ -122,9 +126,7 @@ public class FileActivity extends AppCompatActivity {
 
     //然后路径拿到了就访问服务器上传
     private void UploadFile(String url) {
-        final File file = new File(url);
-        filename = file.getName();
-        Log.e("file_name", filename);
+
         Intent intent = getIntent();
         //从intent取出bundle
         Bundle bundle = intent.getBundleExtra("data");
@@ -134,9 +136,25 @@ public class FileActivity extends AppCompatActivity {
 
         Log.e("file_first", first);
         Log.e("file_second", second);
+
+        final File file = new File(url);
+        //文件名拼接：本身文件名+所属二级学科
+
+        // 获取后缀名
+        String sname = file.getName().substring(file.getName().lastIndexOf("."));
+
+        //获得upload部分
+        String fileName = file.getName().substring(0,file.getName().lastIndexOf("."));
+
+        //filename = sname + first+ "."+fileName;
+
+        //文件名拼接：本身文件名+所属二级学科
+        filename =first+"_"+fileName+sname;
+        Log.e("file_name", filename);
+
         //当前登录的用户名
-        //String username = AppService.getInstance().getCurrentUser().username;
-        String username="test";
+        String username = AppService.getInstance().getCurrentUser().username;
+        //String username = "test";
         //  Log.e("username",username);
 
         //打印一下看看
@@ -158,8 +176,16 @@ public class FileActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(String s, Call call, Response response) {
 
+                        Toast.makeText(FileActivity.this, "上传成功！您的积分+1", Toast.LENGTH_SHORT).show();
                         //  initdata();//上传成功后刷新
                         Log.e("yes", file.getName());
+
+                        Intent intent = new Intent();
+                        //调用Intent的setClass方法
+                        intent.setClass(FileActivity.this, MaterialActivity.class);
+                        //启动Activity
+                        startActivity(intent);
+
                     }
                 });
     }

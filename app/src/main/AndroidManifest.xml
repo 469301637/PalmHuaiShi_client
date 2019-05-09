@@ -41,7 +41,8 @@
         <activity android:name=".ui.activity.MyActivity" />
         <activity android:name=".ui.view.MyDetailActivity" />
         <activity android:name=".ui.activity.HTMLActivity" />
-        <activity android:name=".ui.view.BBSIndexActivity"></activity>
+        <activity android:name=".ui.view.BBSIndexActivity" />
+        <activity android:name=".ui.activity.MyLuntanActivity"></activity>
     </application>
 
 </manifest>

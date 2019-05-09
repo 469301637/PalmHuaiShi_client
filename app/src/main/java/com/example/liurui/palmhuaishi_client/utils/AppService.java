@@ -74,7 +74,7 @@ public class AppService {
      *
      * @param username 用户名
      * @param password 密码
-     * @param nickname 昵称
+     * @param nickname 昵称(手机号码)
      * @param callback 回调
      */
     public void registerHytc(String username, String password, String nickname, JsonCallback<LslResponse<User>> callback) {
@@ -112,12 +112,23 @@ public class AppService {
      * 回调积分
      *
      */
-    public void get_integral(String name, JsonCallback<LslResponse<User>> callback) {
+    public void get_integral(String username,JsonCallback<LslResponse<User>> callback) {
         String url = Consts.API_SERVICE_HOST + "/mydetail/get_integral.php";
-        HashMap<String, String> getParams = new HashMap<>();
-        getParams.put("username", name);
-        OkGo.get(url).params(getParams).execute(callback);
+        HashMap<String, String> postParams = new HashMap<>();
+        postParams.put("username", username);
+        OkGo.post(url).params(postParams).execute(callback);
     }
+
+    /**
+     * 回调用户个人信息
+     *
+     */
+    public void get_information(String username,JsonCallback<LslResponse<User>> callback) {
+        String url = Consts.API_SERVICE_HOST + "/mydetail/get_imgornation.php?username="+username;
+        OkGo.get(url).execute(callback);
+
+    }
+
 
 
     /**

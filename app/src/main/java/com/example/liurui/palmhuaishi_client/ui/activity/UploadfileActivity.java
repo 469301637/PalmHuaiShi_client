@@ -29,6 +29,7 @@ public class UploadfileActivity extends AppCompatActivity {
 
         firstlevel = findViewById(R.id.firstlevel);
         secondlevel = findViewById(R.id.secondlevel);
+
         firstlevel.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view,
@@ -63,6 +64,7 @@ public class UploadfileActivity extends AppCompatActivity {
         });
 
         file = findViewById(R.id.uploadfile_file);
+        //没用到upload！直接点击文件跳转。
         upload = findViewById(R.id.uploadfile_upload);
         file.setOnClickListener(new View.OnClickListener() {
             @Override

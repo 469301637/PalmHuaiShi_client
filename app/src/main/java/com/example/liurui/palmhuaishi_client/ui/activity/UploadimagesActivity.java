@@ -83,7 +83,7 @@ public class UploadimagesActivity extends AppCompatActivity implements View.OnCl
         if (data != null) {
             path = ImageSelector.getImagePaths(data);
             for (int i = 0; i < path.size(); i++) {
-                        /*
+                        /**
                         * 从本地文件中读读取图片
                         * */
                 String fileName = "";

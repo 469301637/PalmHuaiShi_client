@@ -59,8 +59,8 @@ public class ShowmaterialActivity extends AppCompatActivity {
     }
 
     private void initWebView(String text) {
-        //加载一个网页：(没有请求头QAQ)
-        webView.loadUrl("http://118.25.130.111/dashboard/files/all.php?firstlevel="+text);
+        //加载一个网页：(有请求头QAQ)
+        webView.loadUrl("http://118.25.130.111/dashboard/files/search.php?firstlevel="+text);
     }
         /*Intent intent = new Intent();
 

@@ -1,6 +1,7 @@
 package com.example.liurui.palmhuaishi_client.ui.view;
 
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,6 +13,8 @@ import android.widget.SearchView;
 import com.example.liurui.palmhuaishi_client.R;
 import com.example.liurui.palmhuaishi_client.ui.activity.IndexActivity;
 import com.example.liurui.palmhuaishi_client.ui.activity.MyActivity;
+import com.example.liurui.palmhuaishi_client.ui.activity.ReleaseActivity;
+import com.example.liurui.palmhuaishi_client.ui.activity.UploadfileActivity;
 
 public class MaterialActivity extends AppCompatActivity implements
         SearchView.OnQueryTextListener {
@@ -39,6 +42,8 @@ public class MaterialActivity extends AppCompatActivity implements
     private ImageView imageView3;
     private ImageView imageView4;
 
+    private FloatingActionButton fab01Add;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +54,19 @@ public class MaterialActivity extends AppCompatActivity implements
         imageView2 = findViewById(R.id.material_but2);
         imageView3 = findViewById(R.id.material_but3);
         imageView4 = findViewById(R.id.material_but4);
+
+        //上传按钮的监听
+        fab01Add=findViewById(R.id.material_upload);
+        fab01Add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent();
+                intent.setClass(MaterialActivity.this,UploadfileActivity.class);
+                startActivity(intent);
+
+            }
+        });
 
         searchView=findViewById(R.id.material_search);
         /**
@@ -174,6 +192,8 @@ public class MaterialActivity extends AppCompatActivity implements
 
     }
 
+
+    //搜索的监听
     @Override
     public boolean onQueryTextSubmit(String s) {
 

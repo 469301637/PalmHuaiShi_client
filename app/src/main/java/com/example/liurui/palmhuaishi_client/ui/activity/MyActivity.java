@@ -11,7 +11,6 @@ import android.widget.Toast;
 
 import com.example.liurui.palmhuaishi_client.R;
 
-import com.example.liurui.palmhuaishi_client.model.Material;
 import com.example.liurui.palmhuaishi_client.model.User;
 import com.example.liurui.palmhuaishi_client.net.okgo.JsonCallback;
 import com.example.liurui.palmhuaishi_client.net.okgo.LslResponse;
@@ -20,6 +19,7 @@ import com.example.liurui.palmhuaishi_client.ui.view.MaterialActivity;
 import com.example.liurui.palmhuaishi_client.ui.view.MyDetailActivity;
 import com.example.liurui.palmhuaishi_client.utils.AppService;
 import com.leon.lib.settingview.LSettingItem;
+
 
 import okhttp3.Call;
 import okhttp3.Response;
@@ -117,8 +117,11 @@ public class MyActivity extends AppCompatActivity {
         two.setmOnLSettingItemClick(new LSettingItem.OnLSettingItemClick() {
             @Override
             public void click() {
-                Toast.makeText(MyActivity.this, "点击了钱包", Toast.LENGTH_SHORT).show();
-                //AppService.getInstance().message();
+                Intent intent = new Intent();
+                //调用Intent的setClass方法
+                intent.setClass(MyActivity.this, MyLuntanActivity.class);
+                //启动Activity
+                startActivity(intent);
             }
         });
 
@@ -129,16 +132,18 @@ public class MyActivity extends AppCompatActivity {
                 AppService.getInstance().get_integral(username, new JsonCallback<LslResponse<User>>() {
                     @Override
                     public void onSuccess(LslResponse<User> userLslResponse, Call call, Response response) {
-                        //userLslResponse.code;
+                        if (userLslResponse.code != LslResponse.RESPONSE_OK) {
+                            Toast.makeText(getApplicationContext(), "回调有误!", Toast.LENGTH_SHORT).show();
 
-                        code=userLslResponse.code;
-                        //Toast.makeText(MyActivity.this, "您的积分为："+ userLslResponse.code, Toast.LENGTH_SHORT).show();
+                        } else {
+                            Log.e("username",username);
+                            Log.e("int", String.valueOf(userLslResponse.data.integral));
+                            Toast.makeText(getApplicationContext(), "您当前的积分为："+userLslResponse.data.integral, Toast.LENGTH_SHORT).show();
+                        }
                     }
                 });
-                Log.e("username",username);
-                Log.e("inte",code+"");
-                 Toast.makeText(MyActivity.this, "您的积分为:"+code, Toast.LENGTH_SHORT).show();
-                //AppService.getInstance().message();
+
+
             }
         });
 

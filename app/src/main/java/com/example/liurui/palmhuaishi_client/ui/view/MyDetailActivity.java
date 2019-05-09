@@ -3,46 +3,91 @@ package com.example.liurui.palmhuaishi_client.ui.view;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.webkit.WebView;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.liurui.palmhuaishi_client.R;
+
+import com.example.liurui.palmhuaishi_client.model.User;
+import com.example.liurui.palmhuaishi_client.net.okgo.JsonCallback;
+import com.example.liurui.palmhuaishi_client.net.okgo.LslResponse;
 import com.example.liurui.palmhuaishi_client.utils.AppService;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
+
+import okhttp3.Call;
+import okhttp3.Response;
 
 public class MyDetailActivity extends AppCompatActivity {
 
-    private WebView webView;
+    private EditText username;
+    private EditText password;
+    private EditText iphone;
+    private ImageView username1;
+    private ImageView password1;
+    private ImageView iphone1;
+    private List<User> users;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_detail);
 
-        webView = findViewById(R.id.my_detail);
-        initWebView();
+        username =findViewById(R.id.my_detail_username);
+        password =findViewById(R.id.my_detail_password);
+        iphone =findViewById(R.id.my_detail_iphone);
+
+        username1 =findViewById(R.id.my_detail_username_img);
+        password1 =findViewById(R.id.my_detail_password_img);
+        iphone1 =findViewById(R.id.my_detail_iphone_img);
+
+        ShowView();
     }
 
-    private void initWebView() {
-
-
-        Map<String, String> map = new HashMap<>();
-
+    private void ShowView() {
         //当前登录的用户名
-        // String username = AppService.getInstance().getCurrentUser().username;
-        String username = "2115110249";
-        //先测试一下
-        map.put("username", "2115110249");
+         String username1 = AppService.getInstance().getCurrentUser().username;
 
-        //测试
-        // Log.e("1",map.get("username"));
-        //加载一个网页：(有请求头)
-        webView.loadUrl("http://118.25.130.111/dashboard/mydetail/my_imfornation.php?username=" + username);
+         username.setText(username1);
 
-        //走过很多弯路！！！这个地方带参数的传值花了我三个小时！！！fuck！基础不牢，地动山摇！
-        //webView.postUrl("http://118.25.130.111/dashboard/mydetail/my_imfornation.php",username);
+        AppService.getInstance().get_information(username1, new JsonCallback<LslResponse<User>>() {
+            @Override
+            public void onSuccess(LslResponse<User> userLslResponse, Call call, Response response) {
+                if (userLslResponse.code != LslResponse.RESPONSE_OK) {
+                    Toast.makeText(getApplicationContext(), "回调有误!", Toast.LENGTH_SHORT).show();
+                } else {
+                    Log.e("get", String.valueOf(userLslResponse.data.getPassword()));
+                    Log.e("no", String.valueOf(userLslResponse.data.password));
+                    //Toast.makeText(getApplicationContext(), "您当前的积分为："+userLslResponse.data.integral, Toast.LENGTH_SHORT).show();
+                    users=new ArrayList<>();
+                    users.add(userLslResponse.data);
+                    password.setText(users.get(0).getPassword());
+                    Log.e("0", users.get(0).getPassword());
+                    Log.e("1",users.get(1).getPassword());
+                }
+            }
+        });
+
     }
+
+    /*private List<User> parseJson(List<User> json) {
+        //Json的解析类对象
+        JsonParser parser = new JsonParser();
+        //将JSON的String 转成一个JsonArray对象
+        JsonArray jsonArray = parser.parse((JsonReader) json).getAsJsonArray();
+
+        Gson gson = new Gson();
+        jsonBeanArrayList = new ArrayList<>();
+
+        //循环遍历json数组
+        for (JsonElement json : jsonArray) {
+            //使用GSON，转成Bean对象
+            User jsonBean = gson.fromJson(json, User.class);
+            jsonBeanArrayList.add(jsonBean);
+        }
+        return jsonBeanArrayList;
+    }*/
 
 }
