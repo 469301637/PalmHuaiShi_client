@@ -70,6 +70,21 @@ public class AppService {
 
 
     /**
+     * 修改个人信息
+     *
+     * @param username 用户名
+     * @param password 用户密码
+     * @param callback 回调
+     */
+    public void user_revise(String username, String password, JsonCallback<LslResponse<User>> callback) {
+        String url = Consts.API_SERVICE_HOST + "/user/login.php";
+        HashMap<String, String> postParams = new HashMap<>();
+        postParams.put("username", username);
+        postParams.put("password", password);
+        OkGo.post(url).params(postParams).execute(callback);
+    }
+
+    /**
      * 用户注册
      *
      * @param username 用户名

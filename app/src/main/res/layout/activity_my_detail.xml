@@ -9,7 +9,19 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:text="个人信息中心"
+            android:textSize="30dp"
+            android:textColor="@color/red"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:src="@drawable/hytc_icon"/>
 
        <LinearLayout
            android:layout_width="wrap_content"
@@ -22,7 +34,7 @@
                android:layout_height="wrap_content"
                android:text="用户名："
                android:textSize="30dp"/>
-           <EditText
+           <TextView
                android:id="@+id/my_detail_username"
                android:layout_width="300dp"
                android:layout_height="wrap_content"
@@ -30,12 +42,7 @@
 
 
                />
-           <ImageView
-               android:id="@+id/my_detail_username_img"
-               android:layout_width="50dp"
-               android:layout_height="50dp"
-               android:src="@drawable/yes"
-               />
+
        </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
@@ -47,7 +54,7 @@
                 android:layout_height="wrap_content"
                 android:text="密     码："
                 android:textSize="30dp"/>
-            <EditText
+            <TextView
                 android:id="@+id/my_detail_password"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
@@ -58,7 +65,7 @@
                 android:id="@+id/my_detail_password_img"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:src="@drawable/yes"
+                android:src="@drawable/change"
                 />
         </LinearLayout>
         <LinearLayout
@@ -71,7 +78,7 @@
                 android:layout_height="wrap_content"
                 android:text="手     机："
                 android:textSize="30dp"/>
-            <EditText
+            <TextView
                 android:id="@+id/my_detail_iphone"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
@@ -82,8 +89,27 @@
                 android:id="@+id/my_detail_iphone_img"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:src="@drawable/yes"
+                android:src="@drawable/change"
                 />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="积     分："
+                android:textSize="30dp"/>
+            <TextView
+                android:id="@+id/my_detail_integral"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:textSize="30dp"
+
+                />
+
         </LinearLayout>
 
     </LinearLayout>

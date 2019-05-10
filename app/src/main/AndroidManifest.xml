@@ -42,7 +42,9 @@
         <activity android:name=".ui.view.MyDetailActivity" />
         <activity android:name=".ui.activity.HTMLActivity" />
         <activity android:name=".ui.view.BBSIndexActivity" />
-        <activity android:name=".ui.activity.MyLuntanActivity"></activity>
+        <activity android:name=".ui.activity.MyLuntanActivity" />
+        <activity android:name=".ui.activity.ChangeUserActivity" />
+        <activity android:name=".ui.activity.MyForumActivity"></activity>
     </application>
 
 </manifest>
