@@ -37,7 +37,10 @@
             android:focusable="true"
             android:focusableInTouchMode="true"
             android:singleLine="true"
-            android:text="欢迎大家使用智慧淮师APP，本APP集成校园资讯、校内资源分享、校园论坛等板块，期待您的加入！" />
+            />
+            <!--android:text="欢迎大家使用智慧淮师APP，本APP集成校园资讯、校内资源分享、校园论坛等板块，期待您的加入！" -->
+
+
 
     </LinearLayout>
 

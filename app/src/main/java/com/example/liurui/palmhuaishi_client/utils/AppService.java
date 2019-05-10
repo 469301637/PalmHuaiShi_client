@@ -102,6 +102,37 @@ public class AppService {
     }
 
     /**
+     * 管理员发布资讯
+     *
+     * @param time 时间
+     * @param top
+     * @param gundong
+     * @param detail
+     */
+    public void managementHytc(String time, String top, String gundong,String detail, JsonCallback<LslResponse<User>> callback) {
+        String url = Consts.API_SERVICE_HOST + "/user/management.php";
+        HashMap<String, String> postParams = new HashMap<>();
+        postParams.put("time", time);
+        postParams.put("top", top);
+        postParams.put("gundong", gundong);
+        postParams.put("detail", detail);
+        OkGo.post(url).params(postParams).execute(callback);
+    }
+
+
+    /**
+     * 忘记密码
+     *
+     */
+    public void FindPasswordHytc(String username, JsonCallback<LslResponse<User>> callback) {
+        String url = Consts.API_SERVICE_HOST + "/user/find_password.php";
+        HashMap<String, String> postParams = new HashMap<>();
+        postParams.put("username", username);
+        OkGo.post(url).params(postParams).execute(callback);
+    }
+
+
+    /**
      * 用户发帖
      *
      * @param id       以时间戳为id

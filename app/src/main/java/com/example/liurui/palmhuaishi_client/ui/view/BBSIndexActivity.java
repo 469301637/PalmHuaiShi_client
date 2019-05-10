@@ -57,6 +57,12 @@ public class BBSIndexActivity extends AppCompatActivity  {
 
                 Intent intent = new Intent();
                 intent.setClass(BBSIndexActivity.this, IndexActivity.class);
+
+                Bundle bundle = new Bundle();
+                bundle.putString("code", "0");
+                // 将Bundle添加到Intent里面
+                intent.putExtra("data", bundle);
+
                 startActivity(intent);
 
             }

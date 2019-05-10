@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.content.SharedPreferences.Editor;
 
@@ -32,6 +33,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button button;
     private Button button1;
 
+    private TextView forget_password;
     private SharedPreferences sp;
 
     @Override
@@ -46,6 +48,21 @@ public class LoginActivity extends AppCompatActivity {
 
         uid = (EditText) findViewById(R.id.login_username);
         pwd = (EditText) findViewById(R.id.login_password);
+
+
+        forget_password=findViewById(R.id.index_forget_password);
+        forget_password.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent();
+                intent.setClass(LoginActivity.this, FindPasswordActivity.class);
+                //启动Activity
+                startActivity(intent);
+
+            }
+        });
+
         button = findViewById(R.id.login_login);
         button1 = findViewById(R.id.login_register);
         button.setOnClickListener(new View.OnClickListener() {
@@ -89,8 +106,20 @@ public class LoginActivity extends AppCompatActivity {
                     Log.e(TAG, "登陆服务器成功！");
                     //创建Intent对象
                     Intent intent = new Intent();
+                    //Log.e("uid",username);
                     //调用Intent的setClass方法
-                    intent.setClass(LoginActivity.this, IndexActivity.class);
+                    if(username.equals("1"))
+                    {
+                        intent.setClass(LoginActivity.this, ManagementActivity.class);
+                    }else {
+                        intent.setClass(LoginActivity.this, IndexActivity.class);
+                    }
+
+                    Bundle bundle = new Bundle();
+                    bundle.putString("code", "1");
+                    // 将Bundle添加到Intent里面
+                    intent.putExtra("data", bundle);
+
                     //启动Activity
                     startActivity(intent);
                     LoginActivity.this.finish();

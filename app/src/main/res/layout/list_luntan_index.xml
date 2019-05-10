@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        //第一行
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/hytc_icon" />
+
+            <TextView
+                android:id="@+id/luntan_username"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"
+                android:text="2115110249"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+        //主贴内容
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="第一个论坛主贴模板。。。。"
+                android:textSize="20dp"
+                android:id="@+id/luntan_content"/>
+
+            <ImageView
+                android:id="@+id/luntan_content_img"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:src="@drawable/hytc_icon" />
+        </LinearLayout>
+        //第三行
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="15dp">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/message"/>
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/luntan_mes"
+                android:text="20"
+                android:textSize="20dp"/>
+            <ImageView
+                android:layout_marginLeft="150dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/good"/>
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:text="1"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

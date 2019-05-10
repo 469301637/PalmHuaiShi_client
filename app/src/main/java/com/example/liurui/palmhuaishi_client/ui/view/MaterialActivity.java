@@ -147,6 +147,12 @@ public class MaterialActivity extends AppCompatActivity implements
 
                 Intent intent = new Intent();
                 intent.setClass(MaterialActivity.this,IndexActivity.class);
+
+                Bundle bundle = new Bundle();
+                bundle.putString("code", "0");
+                // 将Bundle添加到Intent里面
+                intent.putExtra("data", bundle);
+
                 startActivity(intent);
 
             }
