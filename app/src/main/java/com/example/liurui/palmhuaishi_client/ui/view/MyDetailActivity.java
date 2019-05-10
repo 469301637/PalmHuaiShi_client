@@ -1,5 +1,6 @@
 package com.example.liurui.palmhuaishi_client.ui.view;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,10 +10,15 @@ import android.widget.Toast;
 
 import com.example.liurui.palmhuaishi_client.R;
 
+import com.example.liurui.palmhuaishi_client.model.JsonUser;
 import com.example.liurui.palmhuaishi_client.model.User;
 import com.example.liurui.palmhuaishi_client.net.okgo.JsonCallback;
 import com.example.liurui.palmhuaishi_client.net.okgo.LslResponse;
+import com.example.liurui.palmhuaishi_client.ui.activity.FileActivity;
 import com.example.liurui.palmhuaishi_client.utils.AppService;
+import com.google.gson.Gson;
+import com.lzy.okhttputils.OkHttpUtils;
+import com.lzy.okhttputils.callback.StringCallback;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +34,6 @@ public class MyDetailActivity extends AppCompatActivity {
     private ImageView username1;
     private ImageView password1;
     private ImageView iphone1;
-    private List<User> users;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +57,21 @@ public class MyDetailActivity extends AppCompatActivity {
 
          username.setText(username1);
 
-        AppService.getInstance().get_information(username1, new JsonCallback<LslResponse<User>>() {
+        OkHttpUtils.post("http://118.25.130.111/dashboard/mydetail/get_imgornation.php")
+                .params("username", username1)
+                .execute(new StringCallback() {
+                    @Override
+                    public void onSuccess(String s, Call call, Response response) {
+                        Log.e("information",s);
+                        JsonUser jsonUser=new Gson().fromJson(s,JsonUser.class);
+                        List<JsonUser.UserBean> userList = jsonUser.getData();
+                        Log.e("password",userList.get(0).getPassword());
+
+                        password.setText(userList.get(0).getPassword());
+                        iphone.setText(userList.get(0).getNickname().trim());
+                    }
+                });
+        /*AppService.getInstance().get_information(username1, new JsonCallback<LslResponse<User>>() {
             @Override
             public void onSuccess(LslResponse<User> userLslResponse, Call call, Response response) {
                 if (userLslResponse.code != LslResponse.RESPONSE_OK) {
@@ -68,7 +87,7 @@ public class MyDetailActivity extends AppCompatActivity {
                     Log.e("1",users.get(1).getPassword());
                 }
             }
-        });
+        });*/
 
     }
 

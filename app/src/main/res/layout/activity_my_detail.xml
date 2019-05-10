@@ -17,6 +17,11 @@
            android:orientation="horizontal"
            android:layout_gravity="center">
 
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="用户名："
+               android:textSize="30dp"/>
            <EditText
                android:id="@+id/my_detail_username"
                android:layout_width="300dp"
@@ -37,13 +42,17 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_gravity="center">
-
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="密     码："
+                android:textSize="30dp"/>
             <EditText
                 android:id="@+id/my_detail_password"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:textSize="30dp"
-                android:text="jhgdjgqdw g"
+
                 />
             <ImageView
                 android:id="@+id/my_detail_password_img"
@@ -57,13 +66,17 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_gravity="center">
-
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="手     机："
+                android:textSize="30dp"/>
             <EditText
                 android:id="@+id/my_detail_iphone"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:textSize="30dp"
-                android:text="jhgdjgqdw g"
+
                 />
             <ImageView
                 android:id="@+id/my_detail_iphone_img"
