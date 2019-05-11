@@ -83,7 +83,7 @@ public class MyActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent intent = new Intent();
-                intent.setClass(MyActivity.this, BBSIndexActivity.class);
+                intent.setClass(MyActivity.this, MyForumActivity.class);
                 startActivity(intent);
             }
         });

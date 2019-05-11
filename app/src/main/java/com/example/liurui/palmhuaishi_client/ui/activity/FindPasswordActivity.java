@@ -93,10 +93,7 @@ public class FindPasswordActivity extends AppCompatActivity {
                 } else {
                     Toast.makeText(getApplicationContext(), "您的输入有误!请重新输入！", Toast.LENGTH_SHORT).show();
                 }
-
             }
         });
-
-
     }
 }

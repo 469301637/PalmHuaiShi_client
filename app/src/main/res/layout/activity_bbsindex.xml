@@ -41,7 +41,7 @@
         android:layout_marginRight="25dp"
         android:src="@drawable/upload"
         app:elevation="5dp"
-        app:fabSize="mini" />s
+        app:fabSize="mini" />
 </LinearLayout>
         //最底下的导航栏
         <LinearLayout

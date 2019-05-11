@@ -189,7 +189,8 @@ public class IndexActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent intent = new Intent();
-                intent.setClass(IndexActivity.this, BBSIndexActivity.class);
+               // intent.setClass(IndexActivity.this, BBSIndexActivity.class);
+                intent.setClass(IndexActivity.this, MyForumActivity.class);
                 startActivity(intent);
 
             }

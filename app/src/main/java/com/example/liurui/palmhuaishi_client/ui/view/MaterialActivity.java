@@ -13,6 +13,7 @@ import android.widget.SearchView;
 import com.example.liurui.palmhuaishi_client.R;
 import com.example.liurui.palmhuaishi_client.ui.activity.IndexActivity;
 import com.example.liurui.palmhuaishi_client.ui.activity.MyActivity;
+import com.example.liurui.palmhuaishi_client.ui.activity.MyForumActivity;
 import com.example.liurui.palmhuaishi_client.ui.activity.ReleaseActivity;
 import com.example.liurui.palmhuaishi_client.ui.activity.UploadfileActivity;
 
@@ -175,7 +176,7 @@ public class MaterialActivity extends AppCompatActivity implements
             public void onClick(View view) {
 
                 Intent intent = new Intent();
-                intent.setClass(MaterialActivity.this,BBSIndexActivity.class);
+                intent.setClass(MaterialActivity.this,MyForumActivity.class);
                 startActivity(intent);
 
             }

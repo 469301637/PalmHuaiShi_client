@@ -46,7 +46,8 @@
         <activity android:name=".ui.activity.ChangeUserActivity" />
         <activity android:name=".ui.activity.MyForumActivity" />
         <activity android:name=".ui.activity.ManagementActivity" />
-        <activity android:name=".ui.activity.FindPasswordActivity"></activity>
+        <activity android:name=".ui.activity.FindPasswordActivity" />
+        <activity android:name=".ui.activity.MyForumDetailActivity"></activity>
     </application>
 
 </manifest>
